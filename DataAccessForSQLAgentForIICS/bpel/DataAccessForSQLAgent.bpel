@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+              xmlns:das="http://schemas.active-endpoints.com/data-access/2010/04/data-access.xsd"
+              xmlns:ext1="http://www.activebpel.org/2009/06/bpel/extension/links"
+              xmlns:data-access="http://docs.active-endpoints/wsdl/data-access/2010/04/data-access.wsdl"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+              xmlns:ext="http://www.activebpel.org/2006/09/bpel/extension/query_handling"
+              xmlns:aei="http://www.activebpel.org/2009/02/bpel/extension/ignorable"
+              aei:editStyle="BPMN"
+              ext1:linksAreTransitions="yes"
+              ext:createTargetXPath="yes"
+              ext:disableSelectionFailure="yes"
+              name="DataAccessForSQLAgent"
+              suppressJoinFailure="yes"
+              targetNamespace="http://DataAccessForSQLAgent">
+   <bpmndi:BPMNDiagram xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                       xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                       aei:bpelDigest=""
+                       aei:editStyle="BPMN"
+                       aei:layoutNeeded="false"
+                       aei:modelVersion="5"
+                       aei:objectId="149517567481120567"
+                       aei:processInitiatorSim=""
+                       isHorizontal="false">
+      <bpmndi:BPMNPlane>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="149517648584020823"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="149517648584020823"/>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="149517651340621057"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="149517651340621057"/>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {201,49}"
+                           aei:absoluteSize="DIM {145,243}"
+                           aei:objectId="149517650707521043"
+                           aei:type="SEQUENCE"
+                           bpmnElement="149517650707521043"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="191" y="39"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {238,59}"
+                           aei:absoluteSize="DIM {70,60}"
+                           aei:attachments=""
+                           aei:name="ReceiveAgent"
+                           aei:objectId="149517650707421039"
+                           aei:principal=""
+                           aei:text="execSQL"
+                           aei:type="RECEIVE"
+                           bpmnElement="149517650707421039">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {262,116}"
+                              aei:absoluteSize="DIM {67,13}"
+                              aei:anchor.location="1"
+                              aei:anchor.objectId="149517650707421039"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="149517650707621045"
+                              aei:relative.location="LOC {-21,47}"
+                              aei:text="ReceiveAgent"
+                              bpmnElement="149517650707421039label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {211,144}"
+                           aei:absoluteSize="DIM {125,53}"
+                           aei:attachments=""
+                           aei:name="execSQL"
+                           aei:objectId="149517654628521183"
+                           aei:subprocessPath=""
+                           aei:text="execSQL"
+                           aei:type="INVOKE"
+                           bpmnElement="149517654628521183">
+            <dc:Bounds height="-1" width="-1" x="268" y="149"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {238,222}"
+                           aei:absoluteSize="DIM {70,60}"
+                           aei:name="ResponseAgent"
+                           aei:objectId="149517650707521041"
+                           aei:text="execSQL-Reply"
+                           aei:type="REPLY"
+                           bpmnElement="149517650707521041">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {247,279}"
+                              aei:absoluteSize="DIM {76,13}"
+                              aei:anchor.location="1"
+                              aei:anchor.objectId="149517650707521041"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="149517650707621047"
+                              aei:relative.location="LOC {-36,47}"
+                              aei:text="ResponseAgent"
+                              bpmnElement="149517650707521041label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+   <bpel:extensions>
+      <bpel:extension mustUnderstand="no"
+                      namespace="http://www.activebpel.org/2009/02/bpel/extension/ignorable"/>
+      <bpel:extension mustUnderstand="no"
+                      namespace="http://www.omg.org/spec/BPMN/20100524/DI"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2006/09/bpel/extension/query_handling"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2009/06/bpel/extension/links"/>
+   </bpel:extensions>
+   <bpel:import importType="http://schemas.xmlsoap.org/wsdl/"
+                namespace="http://docs.active-endpoints/wsdl/data-access/2010/04/data-access.wsdl"/>
+   <bpel:partnerLinks>
+      <bpel:partnerLink aei:id="149517648584020823"
+                        myRole="sender"
+                        name="Process_Consumer"
+                        partnerLinkType="data-access:dataAccessPLT"/>
+      <bpel:partnerLink aei:id="149517651340621057"
+                        name="DAS"
+                        partnerLinkType="data-access:dataAccessPLT"
+                        partnerRole="sender"/>
+   </bpel:partnerLinks>
+   <bpel:variables>
+      <bpel:variable element="das:dataAccessRequest" name="dataAccessRequest"/>
+      <bpel:variable element="das:dataAccessResponse" name="dataAccessResponse"/>
+      <bpel:variable element="das:dataAccessRequest" name="DARequest"/>
+   </bpel:variables>
+   <bpel:sequence aei:id="149517650707521043">
+      <bpel:receive aei:id="149517650707421039"
+                    createInstance="yes"
+                    name="ReceiveAgent"
+                    operation="execSQL"
+                    partnerLink="Process_Consumer"
+                    variable="DARequest"/>
+      <bpel:scope aei:implicit="true" name="execSQL">
+         <bpel:variables>
+            <bpel:variable messageType="data-access:dataAccessMessage" name="parameters"/>
+         </bpel:variables>
+         <bpel:sequence>
+            <bpel:assign aei:assignType="XQUERY" aei:id="149517655830021193">
+               <bpel:copy>
+                  <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:dataAccessRequest xmlns:ns="http://schemas.active-endpoints.com/data-access/2010/04/data-access.xsd"&gt;
+   &lt;ns:sqlStatement columnCase="lowercase"
+                    hasResultSet="true"
+                    includeMetadata="false"
+                    maxRows="0"
+                    maxWaitSeconds="0"
+                    statementId="string"&gt;
+      &lt;ns:statement&gt;{ $DARequest/das:sqlStatement/das:statement/text()}&lt;/ns:statement&gt;
+     &lt;/ns:sqlStatement&gt;
+&lt;/ns:dataAccessRequest&gt;</bpel:from>
+                  <bpel:to part="dataAccessPart" variable="parameters"/>
+               </bpel:copy>
+            </bpel:assign>
+            <bpel:invoke aei:id="149517654628521183"
+                         inputVariable="parameters"
+                         name="execSQL"
+                         operation="execSQL"
+                         outputVariable="dataAccessResponse"
+                         partnerLink="DAS">
+               <bpel:documentation/>
+            </bpel:invoke>
+         </bpel:sequence>
+      </bpel:scope>
+      <bpel:reply aei:id="149517650707521041"
+                  name="ResponseAgent"
+                  operation="execSQL"
+                  partnerLink="Process_Consumer"
+                  variable="dataAccessResponse"/>
+   </bpel:sequence>
+</bpel:process>
