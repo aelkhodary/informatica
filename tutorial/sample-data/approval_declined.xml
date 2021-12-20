@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<loan:loanApprovalResponse xmlns:loan="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd">
+   <loan:responseToLoanRequest>declined</loan:responseToLoanRequest>
+   <loan:responseDescription>canned decline response</loan:responseDescription>
+</loan:loanApprovalResponse>

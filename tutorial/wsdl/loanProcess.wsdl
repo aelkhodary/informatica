@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="loanProcess"
+	xmlns:tns="http://docs.active-endpoints.com/sample/wsdl/loanprocess/2008/02/loanProcess.wsdl" 
+	targetNamespace="http://docs.active-endpoints.com/sample/wsdl/loanprocess/2008/02/loanProcess.wsdl"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:loan="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd"
+	xmlns:loanmsg="http://docs.active-endpoints.com/sample/wsdl/loanMessages/2008/02/loanMessages.wsdl">
+
+	<wsdl:import location="loanMessages.wsdl" namespace="http://docs.active-endpoints.com/sample/wsdl/loanMessages/2008/02/loanMessages.wsdl" />
+
+	<wsdl:types>
+		<xsd:schema elementFormDefault="qualified">
+			<xsd:import
+				namespace="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd"
+				schemaLocation="../schema/loanRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:portType name="LoanProcess">
+		<wsdl:operation name="request">
+			<wsdl:input message="loanmsg:creditInformationMessage" />
+			<wsdl:output message="loanmsg:approvalMessage" />
+			<wsdl:fault name="unableToHandleRequest" message="loanmsg:errorMessage" />
+		</wsdl:operation>	
+	</wsdl:portType>	
+	
+</wsdl:definitions>

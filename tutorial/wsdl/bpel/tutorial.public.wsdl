@@ -1,0 +1,12 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:ns1="http://docs.active-endpoints.com/sample/wsdl/loanprocess/2008/02/loanProcess.wsdl"
+                  name="tutorial.public"
+                  targetNamespace="http://tutorial/tutorial/public">
+   <plnk:partnerLinkType xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+                         name="LoanProcessPLT">
+      <plnk:role name="Provider" portType="ns1:LoanProcess"/>
+   </plnk:partnerLinkType>  
+   <wsdl:import location="../loanProcess.wsdl"
+                namespace="http://docs.active-endpoints.com/sample/wsdl/loanprocess/2008/02/loanProcess.wsdl">
+    </wsdl:import>
+</wsdl:definitions>

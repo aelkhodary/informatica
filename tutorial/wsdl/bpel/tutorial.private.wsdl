@@ -1,0 +1,20 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:ns2="http://docs.active-endpoints.com/sample/wsdl/loanApproval/2008/02/loanApproval.wsdl"
+                  xmlns:ns1="http://docs.active-endpoints.com/sample/wsdl/riskAssessment/2008/02/riskAssessment.wsdl"
+                  name="tutorial.private"
+                  targetNamespace="http://tutorial/tutorial">
+   <plnk:partnerLinkType xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+                         name="RiskAssessmentPLT">
+      <plnk:role name="Provider" portType="ns1:RiskAssessment"/>
+   </plnk:partnerLinkType>
+   <plnk:partnerLinkType xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+                         name="LoanApprovalPLT">
+      <plnk:role name="Provider" portType="ns2:LoanApproval"/>
+   </plnk:partnerLinkType>  
+   <wsdl:import location="../riskAssessment.wsdl"
+                namespace="http://docs.active-endpoints.com/sample/wsdl/riskAssessment/2008/02/riskAssessment.wsdl">
+    </wsdl:import>
+  <wsdl:import location="../loanApproval.wsdl"
+                namespace="http://docs.active-endpoints.com/sample/wsdl/loanApproval/2008/02/loanApproval.wsdl">
+    </wsdl:import>
+</wsdl:definitions>

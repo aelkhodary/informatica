@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<loan:riskAssessmentResponse xmlns:loan="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd">
+   <loan:riskAssessment>low</loan:riskAssessment>
+</loan:riskAssessmentResponse>

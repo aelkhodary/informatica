@@ -1,0 +1,73 @@
+<processRenderings modified="1639960064450">
+   <layout-segments>
+      <segment height="439" id="process_0" tiled="false" width="227">
+         <image height="439" name="process_0_R1C1.jpg" width="227"/>
+      </segment>
+   </layout-segments>
+   <process>
+      <bpel locationId="1"
+            name="tutorial"
+            path="/process"
+            segment="process_0"
+            sheight="439"
+            swidth="227"
+            sx="0"
+            sy="0"
+            type="process">
+         <bpel locationId="14" path="/process/partnerLinks" type="partnerLinks">
+            <bpel locationId="15"
+                  name="loanProcessor"
+                  path="/process/partnerLinks/partnerLink[@name='loanProcessor']"
+                  type="partnerLink"/>
+            <bpel locationId="16"
+                  name="RiskAssessment"
+                  path="/process/partnerLinks/partnerLink[@name='RiskAssessment']"
+                  type="partnerLink"/>
+            <bpel locationId="17"
+                  name="LoanApproval"
+                  path="/process/partnerLinks/partnerLink[@name='LoanApproval']"
+                  type="partnerLink"/>
+         </bpel>
+         <bpel locationId="19" path="/process/variables" type="variables">
+            <bpel locationId="20"
+                  name="creditInformation"
+                  path="/process/variables/variable[@name='creditInformation']"
+                  type="variable"/>
+            <bpel locationId="21"
+                  name="approval"
+                  path="/process/variables/variable[@name='approval']"
+                  type="variable"/>
+            <bpel locationId="22"
+                  name="riskAssessment"
+                  path="/process/variables/variable[@name='riskAssessment']"
+                  type="variable"/>
+         </bpel>
+         <bpel locationId="23" name="" path="/process/flow" type="flow">
+            <bpel height="53"
+                  locationId="27"
+                  name="Receive_Customer_Request_for_loan_Amount"
+                  path="/process/flow/receive[@name='Receive_Customer_Request_for_loan_Amount']"
+                  type="receive"
+                  width="125"
+                  x="28"
+                  y="40"/>
+            <bpel height="60"
+                  locationId="30"
+                  name="Return_Approval_Response"
+                  path="/process/flow/reply[@name='Return_Approval_Response']"
+                  type="reply"
+                  width="70"
+                  x="55"
+                  y="305"/>
+            <bpel height="53"
+                  locationId="33"
+                  name="Invoke_Risk_Assessor"
+                  path="/process/flow/invoke[@name='Invoke_Risk_Assessor']"
+                  type="invoke"
+                  width="125"
+                  x="28"
+                  y="160"/>
+         </bpel>
+      </bpel>
+   </process>
+</processRenderings>

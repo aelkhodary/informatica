@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+              xmlns:ns2="http://tutorial/tutorial"
+              xmlns:ns="http://tutorial/tutorial/public"
+              xmlns:loanMessages="http://docs.active-endpoints.com/sample/wsdl/loanMessages/2008/02/loanMessages.wsdl"
+              xmlns:ext1="http://www.activebpel.org/2009/06/bpel/extension/links"
+              xmlns:loanApproval="http://docs.active-endpoints.com/sample/wsdl/loanApproval/2008/02/loanApproval.wsdl"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:loan="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd"
+              xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+              xmlns:ext="http://www.activebpel.org/2006/09/bpel/extension/query_handling"
+              xmlns:aei="http://www.activebpel.org/2009/02/bpel/extension/ignorable"
+              xmlns:riskAssessment="http://docs.active-endpoints.com/sample/wsdl/riskAssessment/2008/02/riskAssessment.wsdl"
+              xmlns:loanProcess="http://docs.active-endpoints.com/sample/wsdl/loanprocess/2008/02/loanProcess.wsdl"
+              aei:editStyle="BPMN"
+              ext1:linksAreTransitions="yes"
+              ext:createTargetXPath="yes"
+              ext:disableSelectionFailure="yes"
+              name="tutorial"
+              suppressJoinFailure="yes"
+              targetNamespace="http://tutorial">
+   <bpmndi:BPMNDiagram xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                       xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                       aei:bpelDigest=""
+                       aei:editStyle="BPMN"
+                       aei:layoutNeeded="false"
+                       aei:modelVersion="5"
+                       aei:objectId="163994824914400029"
+                       aei:processInitiatorSim=""
+                       isHorizontal="false">
+      <bpmndi:BPMNPlane>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="163995407219801327"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="163995407219801327"/>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="163995777316706067"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="163995777316706067"/>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="163995923783508347"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="163995923783508347"/>
+         <bpmndi:BPMNShape aei:objectId="163994994123700689"
+                           aei:type="FLOW"
+                           bpmnElement="163994994123700689">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {28,40}"
+                           aei:absoluteSize="DIM {125,53}"
+                           aei:attachments=""
+                           aei:backgroundImageLocation="icons/bpmn/activity/blocks/ActivityBlockOrange.png"
+                           aei:bpmNotation="ReceiveTask"
+                           aei:name="Receive Customer Request for loan Amount"
+                           aei:objectId="163994993943000675"
+                           aei:principal=""
+                           aei:type="RECEIVE"
+                           bpmnElement="163994993943000675">
+            <dc:Bounds height="53" width="125" x="131" y="101"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge aei:objectId="163995656519105069"
+                          aei:targetAnchorPt="LOC {0,26}"
+                          bpmnElement="163995656519105069"/>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {18,30}"
+                           aei:absoluteSize="DIM {145,73}"
+                           aei:actySimState="0"
+                           aei:bpelName=""
+                           aei:joinConditionComp=""
+                           aei:objectId="163994995202201011"
+                           aei:type="Sequence"
+                           bpmnElement="163994993943000675wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="8" y="20"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {55,305}"
+                           aei:absoluteSize="DIM {70,60}"
+                           aei:name="Return Approval Response"
+                           aei:objectId="163995619875604069"
+                           aei:type="REPLY"
+                           bpmnElement="163995619875604069">
+            <dc:Bounds height="-1" width="-1" x="70" y="149"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {79,362}"
+                              aei:absoluteSize="DIM {129,13}"
+                              aei:anchor.location="1"
+                              aei:anchor.objectId="163995619875604069"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="163995619875604071"
+                              aei:relative.location="LOC {-21,47}"
+                              aei:text="Return Approval Response"
+                              bpmnElement="163995619875604069label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {45,295}"
+                           aei:absoluteSize="DIM {90,80}"
+                           aei:actySimState="0"
+                           aei:bpelName=""
+                           aei:joinConditionComp=""
+                           aei:objectId="163995619876304073"
+                           aei:type="Sequence"
+                           bpmnElement="163995619875604069wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="35" y="285"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {28,160}"
+                           aei:absoluteSize="DIM {125,53}"
+                           aei:attachments=""
+                           aei:backgroundImageLocation="icons/bpmn/activity/blocks/ActivityBlockBlue.png"
+                           aei:name="Invoke Risk Assessor"
+                           aei:objectId="163995791788606147"
+                           aei:subprocessPath=""
+                           aei:text="check"
+                           aei:type="INVOKE"
+                           bpmnElement="163995791788606147">
+            <dc:Bounds height="-1" width="-1" x="92" y="112"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge aei:objectId="163995794804706237" bpmnElement="163995794804706237"/>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {18,150}"
+                           aei:absoluteSize="DIM {145,73}"
+                           aei:actySimState="0"
+                           aei:bpelName=""
+                           aei:joinConditionComp=""
+                           aei:objectId="163995791789906151"
+                           aei:type="Sequence"
+                           bpmnElement="163995791788606147wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="8" y="140"/>
+         </bpmndi:BPMNShape>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+   <bpel:extensions>
+      <bpel:extension mustUnderstand="no"
+                      namespace="http://www.activebpel.org/2009/02/bpel/extension/ignorable"/>
+      <bpel:extension mustUnderstand="no"
+                      namespace="http://www.omg.org/spec/BPMN/20100524/DI"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2006/09/bpel/extension/query_handling"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2009/06/bpel/extension/links"/>
+   </bpel:extensions>
+   <bpel:import aei:implicit="true"
+                importType="http://schemas.xmlsoap.org/wsdl/"
+                location="../wsdl/bpel/tutorial.public.wsdl"
+                namespace="http://tutorial/tutorial/public"/>
+   <bpel:import importType="http://schemas.xmlsoap.org/wsdl/"
+                location="../wsdl/loanProcess.wsdl"
+                namespace="http://docs.active-endpoints.com/sample/wsdl/loanprocess/2008/02/loanProcess.wsdl"/>
+   <bpel:import importType="http://schemas.xmlsoap.org/wsdl/"
+                location="../wsdl/loanMessages.wsdl"
+                namespace="http://docs.active-endpoints.com/sample/wsdl/loanMessages/2008/02/loanMessages.wsdl"/>
+   <bpel:import aei:implicit="true"
+                importType="http://schemas.xmlsoap.org/wsdl/"
+                location="../wsdl/bpel/tutorial.private.wsdl"
+                namespace="http://tutorial/tutorial"/>
+   <bpel:import importType="http://schemas.xmlsoap.org/wsdl/"
+                location="../wsdl/riskAssessment.wsdl"
+                namespace="http://docs.active-endpoints.com/sample/wsdl/riskAssessment/2008/02/riskAssessment.wsdl"/>
+   <bpel:import importType="http://schemas.xmlsoap.org/wsdl/"
+                location="../wsdl/loanApproval.wsdl"
+                namespace="http://docs.active-endpoints.com/sample/wsdl/loanApproval/2008/02/loanApproval.wsdl"/>
+   <bpel:partnerLinks>
+      <bpel:partnerLink aei:id="163995407219801327"
+                        aei:interface="loanProcess:LoanProcess"
+                        myRole="Provider"
+                        name="loanProcessor"
+                        partnerLinkType="ns:LoanProcessPLT"/>
+      <bpel:partnerLink aei:id="163995777316706067"
+                        aei:interface="riskAssessment:RiskAssessment"
+                        name="RiskAssessment"
+                        partnerLinkType="ns2:RiskAssessmentPLT"
+                        partnerRole="Provider"/>
+      <bpel:partnerLink aei:id="163995923783508347"
+                        aei:interface="loanApproval:LoanApproval"
+                        name="LoanApproval"
+                        partnerLinkType="ns2:LoanApprovalPLT"
+                        partnerRole="Provider"/>
+   </bpel:partnerLinks>
+   <bpel:variables>
+      <bpel:variable element="loan:loanProcessRequest" name="creditInformation"/>
+      <bpel:variable element="loan:loanApprovalResponse" name="approval"/>
+      <bpel:variable element="loan:riskAssessmentResponse" name="riskAssessment"/>
+   </bpel:variables>
+   <bpel:flow aei:id="163994994123700689">
+      <bpel:links>
+         <bpel:link aei:id="163995656519105069" name="L1"/>
+         <bpel:link aei:id="163995794804706237" name="L2"/>
+      </bpel:links>
+      <bpel:receive aei:id="163994993943000675"
+                    createInstance="yes"
+                    name="Receive_Customer_Request_for_loan_Amount"
+                    operation="request"
+                    partnerLink="loanProcessor"
+                    variable="creditInformation">
+         <bpel:sources>
+            <bpel:source linkName="L1"/>
+         </bpel:sources>
+      </bpel:receive>
+      <bpel:reply aei:id="163995619875604069"
+                  name="Return_Approval_Response"
+                  operation="request"
+                  partnerLink="loanProcessor"
+                  variable="approval">
+         <bpel:targets>
+            <bpel:target linkName="L2"/>
+         </bpel:targets>
+      </bpel:reply>
+      <bpel:invoke aei:id="163995791788606147"
+                   inputVariable="creditInformation"
+                   name="Invoke_Risk_Assessor"
+                   operation="check"
+                   outputVariable="riskAssessment"
+                   partnerLink="RiskAssessment">
+         <bpel:targets>
+            <bpel:target linkName="L1"/>
+         </bpel:targets>
+         <bpel:sources>
+            <bpel:source linkName="L2"/>
+         </bpel:sources>
+      </bpel:invoke>
+   </bpel:flow>
+</bpel:process>

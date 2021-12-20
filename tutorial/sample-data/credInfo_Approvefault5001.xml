@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<loan:loanProcessRequest xmlns:loan="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd">
+   <loan:loanType>Auto</loan:loanType>
+   <loan:firstName>Alan</loan:firstName>
+   <loan:lastName>Approvefault</loan:lastName>
+   <loan:dayPhone>562</loan:dayPhone>
+   <loan:nightPhone>949</loan:nightPhone>
+   <loan:socialSecurityNumber>054872037</loan:socialSecurityNumber>
+   <loan:amountRequested>15001</loan:amountRequested>
+   <loan:loanDescription>typically causes a problem in automated loan approval</loan:loanDescription>
+   <loan:responseEmail></loan:responseEmail>
+</loan:loanProcessRequest>

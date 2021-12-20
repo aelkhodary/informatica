@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	targetNamespace="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd"
+	xmlns:tns="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="loanProcessRequest" type="tns:LoanProcessRequest" />
+	<xs:element name="riskAssessmentResponse"
+		type="tns:RiskAssessmentResponse" />
+	<xs:element name="loanApprovalResponse"
+		type="tns:LoanApprovalResponse" />
+
+	<xs:complexType name="LoanProcessRequest">
+		<xs:sequence>
+			<xs:element name="loanType" type="xs:string" />
+			<xs:element name="firstName" type="xs:string" />
+			<xs:element name="lastName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"></xs:minLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="dayPhone" type="xs:string" />
+			<xs:element name="nightPhone" type="xs:string" />
+			<xs:element name="socialSecurityNumber" type="xs:string" />
+			<xs:element name="amountRequested">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minExclusive value="1"></xs:minExclusive>
+						<xs:maxExclusive value="1000000"></xs:maxExclusive>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="loanDescription" type="xs:string" />
+			<xs:element name="otherInfo" type="xs:string" minOccurs="0" />
+			<xs:element name="responseEmail" type="xs:string" />
+			<xs:element name="firstApprovalTaskRef" type="xs:anyURI"
+				minOccurs="0" />
+			<xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="loanRequestInfo" type="tns:LoanProcessRequest" />
+	<xs:element name="assessmentInfo" type="tns:RiskAssessmentResponse" />
+
+	<xs:complexType name="RiskAssessmentResponse">
+		<xs:sequence>
+			<xs:element name="riskAssessment" type="tns:RiskAssessment" />
+			<xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LoanApprovalResponse">
+		<xs:sequence>
+			<xs:element name="responseToLoanRequest"
+				type="tns:ResponseValue" />
+			<xs:element name="responseDescription" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="rejectionReason"
+				type="tns:RejectionReason" minOccurs="0" />
+			<xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RejectionReason">
+		<xs:sequence>
+			<xs:element name="reason" type="tns:Reason" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="Reason">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="lowCredit" />
+			<xs:enumeration value="loanValue" />
+			<xs:enumeration value="infoRequired" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="RiskAssessment">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="low" />
+			<xs:enumeration value="high" />
+			<xs:enumeration value="review" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ResponseValue">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="approved" />
+			<xs:enumeration value="declined" />
+			<xs:enumeration value="underReview" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="errorMessage" type="tns:ErrorMessage" />
+
+	<xs:complexType name="ErrorMessage">
+		<xs:sequence>
+			<xs:element name="errorCode" type="xs:integer" />
+			<xs:element name="reason" type="xs:string" />
+			<xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

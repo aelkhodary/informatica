@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="riskAssessment"
+	targetNamespace="http://docs.active-endpoints.com/sample/wsdl/riskAssessment/2008/02/riskAssessment.wsdl"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://docs.active-endpoints.com/sample/wsdl/riskAssessment/2008/02/riskAssessment.wsdl"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:loan="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd"
+	xmlns:loanmsg="http://docs.active-endpoints.com/sample/wsdl/loanMessages/2008/02/loanMessages.wsdl">
+
+	<wsdl:import location="loanMessages.wsdl" namespace="http://docs.active-endpoints.com/sample/wsdl/loanMessages/2008/02/loanMessages.wsdl" />
+
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import
+				namespace="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd"
+				schemaLocation="../schema/loanRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:portType name="RiskAssessment">
+		<wsdl:operation name="check">
+			<wsdl:input message="loanmsg:creditInformationMessage" />
+			<wsdl:output message="loanmsg:riskAssessmentResponse" />
+			<wsdl:fault name="loanProcessFault"
+				message="loanmsg:errorMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="RiskAssessmentSOAPBinding"
+		type="tns:RiskAssessment">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="check">
+			<soap:operation
+				soapAction="http://docs.active-endpoints.com/sample/wsdl/riskAssessment/2008/02/riskAssessment.wsdl/check" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="LoanProcessFault">
+				<soap:fault use="literal" name="LoanProcessFault" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="RiskAssessmentService">
+		<wsdl:port name="RiskAssessmentServicePort" binding="tns:RiskAssessmentSOAPBinding">
+			<soap:address location="urn:x-vos:loancompany:RiskAssessmentService" />
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>

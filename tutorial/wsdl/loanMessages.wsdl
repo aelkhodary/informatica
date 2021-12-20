@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://docs.active-endpoints.com/sample/wsdl/loanMessages/2008/02/loanMessages.wsdl"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="loanMessages"
+	targetNamespace="http://docs.active-endpoints.com/sample/wsdl/loanMessages/2008/02/loanMessages.wsdl"
+	xmlns:loan="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd">
+
+	<wsdl:types>
+		<xsd:schema elementFormDefault="qualified">
+			<xsd:import
+				namespace="http://schemas.active-endpoints.com/sample/LoanRequest/2008/02/loanRequest.xsd"
+				schemaLocation="../schema/loanRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="creditInformationMessage">
+		<wsdl:part name="Document" element="loan:loanProcessRequest" />
+	</wsdl:message>
+
+	<wsdl:message name="approvalMessage">
+		<wsdl:part name="Document" element="loan:loanApprovalResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="errorMessage">
+		<wsdl:part name="Document" element="loan:errorMessage" />
+	</wsdl:message>
+
+	<wsdl:message name="riskAssessmentResponse">
+		<wsdl:part name="Document" element="loan:riskAssessmentResponse" />
+	</wsdl:message>
+
+</wsdl:definitions>
