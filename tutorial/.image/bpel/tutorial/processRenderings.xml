@@ -1,7 +1,7 @@
-<processRenderings modified="1639960064450">
+<processRenderings modified="1639962019976">
    <layout-segments>
-      <segment height="439" id="process_0" tiled="false" width="227">
-         <image height="439" name="process_0_R1C1.jpg" width="227"/>
+      <segment height="629" id="process_0" tiled="false" width="284">
+         <image height="629" name="process_0_R1C1.jpg" width="284"/>
       </segment>
    </layout-segments>
    <process>
@@ -9,8 +9,8 @@
             name="tutorial"
             path="/process"
             segment="process_0"
-            sheight="439"
-            swidth="227"
+            sheight="629"
+            swidth="284"
             sx="0"
             sy="0"
             type="process">
@@ -44,7 +44,7 @@
          </bpel>
          <bpel locationId="23" name="" path="/process/flow" type="flow">
             <bpel height="53"
-                  locationId="27"
+                  locationId="28"
                   name="Receive_Customer_Request_for_loan_Amount"
                   path="/process/flow/receive[@name='Receive_Customer_Request_for_loan_Amount']"
                   type="receive"
@@ -52,21 +52,78 @@
                   x="28"
                   y="40"/>
             <bpel height="60"
-                  locationId="30"
+                  locationId="31"
                   name="Return_Approval_Response"
                   path="/process/flow/reply[@name='Return_Approval_Response']"
                   type="reply"
                   width="70"
-                  x="55"
-                  y="305"/>
+                  x="85"
+                  y="495"/>
             <bpel height="53"
-                  locationId="33"
+                  locationId="34"
                   name="Invoke_Risk_Assessor"
                   path="/process/flow/invoke[@name='Invoke_Risk_Assessor']"
                   type="invoke"
                   width="125"
                   x="28"
-                  y="160"/>
+                  y="136"/>
+            <bpel height="60"
+                  locationId="39"
+                  name="What_is_risk_level"
+                  path="/process/flow/if[@name='What_is_risk_level']"
+                  type="if"
+                  width="32"
+                  x="99"
+                  y="230">
+               <bpel height="128"
+                     locationId="44"
+                     path="/process/flow/if[@name='What_is_risk_level']/if-condition"
+                     type="if-condition"
+                     width="25"
+                     x="20"
+                     y="290">
+                  <bpel height="10"
+                        locationId="46"
+                        name=""
+                        path="/process/flow/if[@name='What_is_risk_level']/if-condition/empty"
+                        type="empty"
+                        width="1"
+                        x="32"
+                        y="319"/>
+               </bpel>
+               <bpel height="128"
+                     locationId="47"
+                     path="/process/flow/if[@name='What_is_risk_level']/elseif"
+                     type="elseif"
+                     width="90"
+                     x="70"
+                     y="290">
+                  <bpel height="60"
+                        locationId="49"
+                        name="Approve"
+                        path="/process/flow/if[@name='What_is_risk_level']/elseif/reply[@name='Approve']"
+                        type="reply"
+                        width="70"
+                        x="80"
+                        y="329"/>
+               </bpel>
+               <bpel height="128"
+                     locationId="50"
+                     path="/process/flow/if[@name='What_is_risk_level']/else"
+                     type="else"
+                     width="25"
+                     x="185"
+                     y="290">
+                  <bpel height="10"
+                        locationId="51"
+                        name=""
+                        path="/process/flow/if[@name='What_is_risk_level']/else/empty"
+                        type="empty"
+                        width="1"
+                        x="197"
+                        y="319"/>
+               </bpel>
+            </bpel>
          </bpel>
       </bpel>
    </process>

@@ -75,14 +75,14 @@
                            isHorizontal="false">
             <dc:Bounds height="-1" width="-1" x="8" y="20"/>
          </bpmndi:BPMNShape>
-         <bpmndi:BPMNShape aei:absoluteLocation="LOC {55,305}"
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {85,495}"
                            aei:absoluteSize="DIM {70,60}"
                            aei:name="Return Approval Response"
                            aei:objectId="163995619875604069"
                            aei:type="REPLY"
                            bpmnElement="163995619875604069">
             <dc:Bounds height="-1" width="-1" x="70" y="149"/>
-            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {79,362}"
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {64,527}"
                               aei:absoluteSize="DIM {129,13}"
                               aei:anchor.location="1"
                               aei:anchor.objectId="163995619875604069"
@@ -94,7 +94,7 @@
                <dc:Bounds height="-1" width="-1" x="0" y="0"/>
             </bpmndi:BPMNLabel>
          </bpmndi:BPMNShape>
-         <bpmndi:BPMNShape aei:absoluteLocation="LOC {45,295}"
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {75,485}"
                            aei:absoluteSize="DIM {90,80}"
                            aei:actySimState="0"
                            aei:bpelName=""
@@ -103,9 +103,9 @@
                            aei:type="Sequence"
                            bpmnElement="163995619875604069wrappingSequence"
                            isHorizontal="false">
-            <dc:Bounds height="-1" width="-1" x="35" y="285"/>
+            <dc:Bounds height="-1" width="-1" x="65" y="475"/>
          </bpmndi:BPMNShape>
-         <bpmndi:BPMNShape aei:absoluteLocation="LOC {28,160}"
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {28,136}"
                            aei:absoluteSize="DIM {125,53}"
                            aei:attachments=""
                            aei:backgroundImageLocation="icons/bpmn/activity/blocks/ActivityBlockBlue.png"
@@ -118,7 +118,7 @@
             <dc:Bounds height="-1" width="-1" x="92" y="112"/>
          </bpmndi:BPMNShape>
          <bpmndi:BPMNEdge aei:objectId="163995794804706237" bpmnElement="163995794804706237"/>
-         <bpmndi:BPMNShape aei:absoluteLocation="LOC {18,150}"
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {18,126}"
                            aei:absoluteSize="DIM {145,73}"
                            aei:actySimState="0"
                            aei:bpelName=""
@@ -127,7 +127,146 @@
                            aei:type="Sequence"
                            bpmnElement="163995791788606147wrappingSequence"
                            isHorizontal="false">
-            <dc:Bounds height="-1" width="-1" x="8" y="140"/>
+            <dc:Bounds height="-1" width="-1" x="8" y="116"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {20,230}"
+                           aei:absoluteSize="DIM {190,248}"
+                           aei:name="What is risk level"
+                           aei:objectId="163996100403214659"
+                           aei:type="IF"
+                           bpmnElement="163996100403214659"
+                           isHorizontal="false">
+            <dc:Bounds height="201" width="75" x="50" y="225"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {131,236}"
+                              aei:absoluteSize="DIM {80,13}"
+                              aei:anchor.location="4"
+                              aei:anchor.objectId="163996100403214659"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="163996100403314661"
+                              aei:relative.location="LOC {6,-18}"
+                              aei:text="What is risk level"
+                              bpmnElement="163996100403214659label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="$creditInformation/loan:amountRequested &gt;= 10000 or $riskAssessment/loan:riskAssessment = 'review'"
+                           aei:IF_EXPR_LANG="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"
+                           aei:absoluteLocation="LOC {20,290}"
+                           aei:absoluteSize="DIM {25,128}"
+                           aei:objectId="163996100403314663"
+                           aei:text="Large loan or review risk"
+                           aei:type="ELSE_IF"
+                           bpmnElement="163996100403214659ifDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {21,335}"
+                              aei:absoluteSize="DIM {117,13}"
+                              aei:anchor.location="4"
+                              aei:anchor.objectId="163996100403314663"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="163996100403314665"
+                              aei:relative.location="LOC {-21,21}"
+                              aei:text="Large loan or review risk"
+                              bpmnElement="163996100403214659ifDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {22,319}"
+                           aei:absoluteSize="DIM {21,33}"
+                           aei:objectId="163996100403314667"
+                           aei:type="SEQUENCE"
+                           bpmnElement="163996100403314667"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="$riskAssessment/loan:riskAssessment = 'low'"
+                           aei:IF_EXPR_LANG="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"
+                           aei:absoluteLocation="LOC {70,290}"
+                           aei:absoluteSize="DIM {90,128}"
+                           aei:objectId="163996120950716317"
+                           aei:text="low risk"
+                           aei:type="ELSE_IF"
+                           bpmnElement="163996120950716317">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {97,301}"
+                              aei:absoluteSize="DIM {35,13}"
+                              aei:anchor.location="4"
+                              aei:anchor.objectId="163996120950716317"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="163996120950716319"
+                              aei:relative.location="LOC {-28,-13}"
+                              aei:text="low risk"
+                              bpmnElement="163996120950716317label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {80,329}"
+                           aei:absoluteSize="DIM {70,60}"
+                           aei:name="Approve"
+                           aei:objectId="163996192444920405"
+                           aei:type="REPLY"
+                           bpmnElement="163996192444920405">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {104,386}"
+                              aei:absoluteSize="DIM {41,13}"
+                              aei:anchor.location="1"
+                              aei:anchor.objectId="163996192444920405"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="163996192444920407"
+                              aei:relative.location="LOC {-21,47}"
+                              aei:text="Approve"
+                              bpmnElement="163996192444920405label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {70,319}"
+                           aei:absoluteSize="DIM {90,80}"
+                           aei:actySimState="0"
+                           aei:bpelName=""
+                           aei:joinConditionComp=""
+                           aei:objectId="163996120950716321"
+                           aei:type="Sequence"
+                           bpmnElement="163996192444920405wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {185,290}"
+                           aei:absoluteSize="DIM {25,128}"
+                           aei:objectId="163996100403314669"
+                           aei:text="high risk"
+                           aei:type="ELSE"
+                           bpmnElement="163996100403214659elseDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {198,301}"
+                              aei:absoluteSize="DIM {39,13}"
+                              aei:anchor.location="4"
+                              aei:anchor.objectId="163996100403314669"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="163996100403314671"
+                              aei:relative.location="LOC {-9,-13}"
+                              aei:text="high risk"
+                              bpmnElement="163996100403214659elseDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {187,319}"
+                           aei:absoluteSize="DIM {21,33}"
+                           aei:objectId="163996100403314673"
+                           aei:type="SEQUENCE"
+                           bpmnElement="163996100403314673"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge aei:objectId="163996102760514755" bpmnElement="163996102760514755"/>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {10,220}"
+                           aei:absoluteSize="DIM {210,268}"
+                           aei:actySimState="0"
+                           aei:bpelName=""
+                           aei:joinConditionComp=""
+                           aei:objectId="163996102435114737"
+                           aei:type="Sequence"
+                           bpmnElement="163996100403214659wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="210"/>
          </bpmndi:BPMNShape>
       </bpmndi:BPMNPlane>
    </bpmndi:BPMNDiagram>
@@ -187,6 +326,7 @@
       <bpel:links>
          <bpel:link aei:id="163995656519105069" name="L1"/>
          <bpel:link aei:id="163995794804706237" name="L2"/>
+         <bpel:link aei:id="163996102760514755" name="L3"/>
       </bpel:links>
       <bpel:receive aei:id="163994993943000675"
                     createInstance="yes"
@@ -204,7 +344,7 @@
                   partnerLink="loanProcessor"
                   variable="approval">
          <bpel:targets>
-            <bpel:target linkName="L2"/>
+            <bpel:target linkName="L3"/>
          </bpel:targets>
       </bpel:reply>
       <bpel:invoke aei:id="163995791788606147"
@@ -220,5 +360,25 @@
             <bpel:source linkName="L2"/>
          </bpel:sources>
       </bpel:invoke>
+      <bpel:if aei:id="163996100403214659" name="What_is_risk_level">
+         <bpel:targets>
+            <bpel:target linkName="L2"/>
+         </bpel:targets>
+         <bpel:sources>
+            <bpel:source linkName="L3"/>
+         </bpel:sources>
+         <bpel:condition>$creditInformation/loan:amountRequested &gt;= 10000 or $riskAssessment/loan:riskAssessment = 'review'</bpel:condition>
+         <bpel:empty aei:id="163996100403314667" aei:implicit="yes"/>
+         <bpel:elseif aei:id="163996120950716317">
+            <bpel:condition>$riskAssessment/loan:riskAssessment = 'low'</bpel:condition>
+            <bpel:reply aei:id="163996192444920405"
+                        name="Approve"
+                        operation="request"
+                        partnerLink="loanProcessor"/>
+         </bpel:elseif>
+         <bpel:else aei:id="163996100403314669">
+            <bpel:empty aei:id="163996100403314673" aei:implicit="yes"/>
+         </bpel:else>
+      </bpel:if>
    </bpel:flow>
 </bpel:process>
